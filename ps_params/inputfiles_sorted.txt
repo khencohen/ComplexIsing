@@ -1,0 +1,11 @@
+inst_p7_q11_e-70.txt
+inst_p11_q13_e-101.txt
+inst_p7_q19_e-157.txt
+inst_p29_q11_e-164.txt
+inst_p11_q17_e-194.txt
+inst_p13_q17_e-223.txt
+inst_p29_q17_e-364.txt
+inst_p17_q19_e-808.txt
+inst_p59_q53_e-1037.txt
+inst_p47_q53_e-1156.txt
+inst_p59_q67_e-2833.txt
