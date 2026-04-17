@@ -12,7 +12,7 @@ model_types_enable = [1, 1, 1, 1]
 use_multi_threading = 1
 stop_if_0_errors = 0
 run_mode = 2   # 0-run, 1-plot, 2-both
-noise_std_list = np.array([0.20, 0.25, 0.30])
+noise_std_list = np.array([0.20, 0.25, 0.30, 0.35])
 opt_sol_en = 0
 plot_mode = 0
 
@@ -21,7 +21,7 @@ testparams = np.zeros((1000, 100))
 NParams = 13   # QUBO 160x160
 # CARDINALITY              avg  nic  epochs rt  nbits  reg    N      M     tbd  Cardi rerun regen  rmdiag
 testparams[1, :NParams] = [4,   5,   10000, 0,  1,     0,     160,   160,  -1,  -1,   1,    0,     0]
-testparams[2, :NParams] = [20,  20,  10000, 0,  1,     0,     160,   160,  -1,  -1,   1,    0,     0]
+testparams[2, :NParams] = [50,  20,  10000, 0,  1,     0,     160,   160,  -1,  -1,   1,    0,     0]
 
 NParams = 10   # Sparse Coding
 # CARDINALITY              avg  nic  epochs rt  nbits  reg    N      M     tbd  Cardi rerun regen  rmdiag
@@ -30,7 +30,7 @@ testparams[4, :NParams] = [100, 100, 10000, 0,  1,     0.035, 16,    8,    -1,  
 testparams[5, :NParams] = [100, 100, 10000, 0,  1,     0.035, 32,    16,   -1,   6]
 testparams[6, :NParams] = [20,  20,  10000, 0,  1,     0.035, 160,   80,   -1,   30]
 
-tests_run_list = [1]
+tests_run_list = [2]
 
 for tid in tests_run_list:
     if testparams[tid, 6] > 32:

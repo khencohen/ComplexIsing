@@ -1,6 +1,7 @@
 import os
 from qubo_network_def import ComplexNet
 import numpy as np
+import gc
 
 def gen_random_ic(tid, noise_std, avg_cnt, ic_cnt, force_regen, N, save_to_file=1):
     ww_ic_fname = 'dataIn/test' + str(tid) + '_noise' + str(noise_std) + '_avg' + str(avg_cnt)+ '_ic' + str(ic_cnt) + '.txt'
@@ -28,9 +29,11 @@ def training_task(tid, model_types_en, noise_std, nic, avg_cnt, A, m, e, b, nbit
 
     models_list = []
     for model_type_cnt in range(len(model_types_en)):
-        tmp_model = ComplexNet(A, m, e, b, nbits, model_type=model_type_cnt, nep_switch_to_PB=epochs // 2, tb_enable=0, avg_cnt=avg_cnt, noise_std=noise_std)
-        models_list.append(tmp_model)
-
+        if model_types_en[model_type_cnt] == 1:
+            tmp_model = ComplexNet(A, m, e, b, nbits, model_type=model_type_cnt, nep_switch_to_PB=epochs // 2, tb_enable=0, avg_cnt=avg_cnt, noise_std=noise_std)
+            models_list.append(tmp_model)
+        else:
+            models_list.append([])
     for ic_cnt in range(nic):
         ww_random = gen_random_ic(tid, noise_std, avg_cnt, ic_cnt, 0, N)
         if descript_en:
@@ -61,5 +64,8 @@ def training_task(tid, model_types_en, noise_std, nic, avg_cnt, A, m, e, b, nbit
         if (not any(best_acc[upd_mask] < 1.0)) and stop_if_no_err_en:
             break
     np.save('tmp/'+str(noise_std)+'_'+str(avg_cnt), res_array)
+    del models_list
+    del res_array
+    gc.collect()
     return
 

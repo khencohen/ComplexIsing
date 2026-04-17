@@ -185,7 +185,7 @@ class ComplexNet(torch.nn.Module):
             loss = torch.real(psi[:, :1].H @ (self.W1 @ psi[:, :1] + self.W2_shifted))[0][0] + loss_diag_reg
         else:
             psi_shifted = (psi + torch.cat([torch.ones((self.N, 1)), torch.zeros((self.N, psi.shape[1] - 1))], dim=1)) / 2
-            loss = torch.square(torch.abs(self.A @ psi_shifted - self.b)).sum() + loss_diag_reg
+            loss = 4 * torch.square(torch.abs(self.A @ psi_shifted - self.b)).sum() + loss_diag_reg  # mult by 4 to compensate factor 1/2 of psi
         return loss
 
 
