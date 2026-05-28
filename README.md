@@ -147,7 +147,7 @@ reported there.
 ## Citation
 
 @misc{cohen2026implicitbinarizationcomplexphase,
-      title={Implicit Binarization via Complex Phase Dynamics in Combinatorial Optimization}, 
+      title={Implicit Binarization via Complex Phase Dynamics in Combinatorial Optimization},
       author={Khen Cohen and Mark Glass and Meir Feder and Yaron Oz},
       year={2026},
       eprint={2605.24502},
