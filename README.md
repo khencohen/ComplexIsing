@@ -146,8 +146,14 @@ reported there.
 
 ## Citation
 
-A BibTeX citation will be added here once the paper is published.
+@misc{cohen2026implicitbinarizationcomplexphase,
+      title={Implicit Binarization via Complex Phase Dynamics in Combinatorial Optimization}, 
+      author={Khen Cohen and Mark Glass and Meir Feder and Yaron Oz},
+      year={2026},
+      eprint={2605.24502},
+      archivePrefix={arXiv},
+      primaryClass={cond-mat.stat-mech},
+      url={https://arxiv.org/abs/2605.24502}, 
+}
 
-```bibtex
-% TODO: citation will be added upon publication
-```
+
